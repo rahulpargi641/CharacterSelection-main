@@ -11,6 +11,9 @@ public class TankView : MonoBehaviour
 
     public Rigidbody rigidbody;
 
+    // Mesh Renderer responsible for rendering all the 3D Model
+    public MeshRenderer[] childs;
+
     private void Start()
     {
         GameObject camera = GameObject.Find("Main Camera");
@@ -57,5 +60,14 @@ public class TankView : MonoBehaviour
     public Rigidbody GetRigidbody()
     {
         return rigidbody;
+    }
+
+    public void ChangeColor(Material color)
+    {
+        for(int i =0; i < childs.Length; i++)
+        {
+            childs[i].material = color;
+        }
+    
     }
 }
